@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 const healthCheckRoutes = require('./routes/healthCheckRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 // Load env vars
 require('dotenv').config();
@@ -31,6 +32,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Mount routes
 app.use('/api/healthcheck', healthCheckRoutes);
+app.use('/api/auth', authRoutes);
 
 // Error handler
 app.use(errorHandler);
